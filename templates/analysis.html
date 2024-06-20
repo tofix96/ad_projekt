@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiza danych</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Rekomendacje dotyczące parametrów zdrowotnych</h1>
+        <div class="recommendations-container">
+        {% for rec in recommendations %}
+            <p class="recommendation">{{ rec }}</p>
+        {% endfor %}
+        </div>
+        <a href="/" class="styledButton">Wróć do strony głównej</a>
+    </div>
+</body>
+</html>

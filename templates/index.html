@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health monitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Health monitor</h1>
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+    </div>
+    {% if alerts %}
+        <div class="alerts">
+            <h2>Alerty</h2>
+            <h3>
+                {% for alert in alerts %}
+                {{ alert }}
+                {% endfor %} </h3></br>
+            <h2> Zajrzyj do zakładki Zalecenia</h2>
+        </div>
+    {% endif %}
+    <h2><strong>Godzina pomiaru:</strong> {{ latest_data.godzina }}</h2>
+    <h2><strong>Tętno:</strong> {{ latest_data.tetno }} uderzeń na minutę</h2>
+    <a href="/hr_chart" class="styledButton">Wykres tętna</a>
+    <h2><strong>Temperatura:</strong> {{ latest_data.temperatura }} °C</h2>
+    <h2><strong>Ciśnienie:</strong> {{ latest_data.cisnienie[0] }}/{{ latest_data.cisnienie[1] }} mmHg</h2> <a href="/bp_chart" class="styledButton">Wykres ciśnienia krwi</a>
+    <h2><strong>Poziom stresu:</strong> {{ latest_data.stres }}</h2>
+    <a href="/stress_chart" class="styledButton">Wykres poziomu stresu</a> </br>
+    <a href="/health_notes" class="styledButton">Dziennik zdrowia</a>
+    <a href="/history" class="styledButton">Historia pomiarów</a>
+    <a href="/export_csv" class="styledButton">Eksport do CSV</a>
+    <a href="/settings" class="styledButton">Ustawienia progów</a>
+    <a href="/upload" class="styledButton">Prześlij plik JSON</a>
+    <a href="/analyze" class="styledButton">Zalecenia</a>
+   
+    </div>
+    
+</body>
+</html>

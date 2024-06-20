@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia pomiarów</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Historia pomiarów</h1>
+        {% for day, entries in grouped_data.items() %}
+            <h2>{{ day }}</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Godzina</th>
+                        <th>Tętno</th>
+                        <th>Temperatura</th>
+                        <th>Ciśnienie</th>
+                        <th>Stres</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in entries %}
+                    <tr>
+                        <td>{{ entry['godzina'].strftime('%H:%M:%S') }}</td>
+                        <td>{{ entry['tetno'] }}</td>
+                        <td>{{ entry['temperatura'] }}</td>
+                        <td>{{ entry['cisnienie'][0] }}/{{ entry['cisnienie'][1] }}</td>
+                        <td>{{ entry['stres'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+        <a href="/" class="styledButton">Wróć do strony głównej</a>
+    </div> 
+</body>
+</html>

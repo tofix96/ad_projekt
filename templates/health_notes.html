@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dziennik zdrowia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Dziennik zdrowia</h1>
+    <form method="POST" class="note-form">
+        <textarea name="note" rows="4" cols="50" class="note-textarea"></textarea><br>
+        <button type="submit" class="note-button">Dodaj notatkę</button>
+    </form>
+    
+    <h2>Notatki</h2>
+    <h3>
+        {% for note in notes %}
+        <strong>{{ note.timestamp }}:</strong> {{ note.note }} </br>
+        {% endfor %}
+    </h3>
+    <a href="/" class="styledButton">Wróć do strony głównej</a>
+    </div>
+</body>
+</html>
