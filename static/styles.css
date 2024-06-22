@@ -142,3 +142,26 @@ table th {
     border-radius: 20px;
     height: auto;
 }
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    align-self: center;
+    margin: 0 auto; 
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

@@ -164,16 +164,11 @@ def upload_file():
             try:
                 new_data = load_json(file_path)
                 validate_data(new_data)
-
-                # Przeniesienie danych z data.json do history.json
                 existing_data = load_json('data.json')
                 history_data = load_json('history.json')
                 history_data.extend(existing_data)
                 save_json('history.json', history_data)
-
-                # Zapisanie nowych danych do data.json
                 save_json('data.json', new_data)
-
                 return redirect(url_for('index'))
             except json.JSONDecodeError as e:
                 print(f"Error decoding JSON file: {e}")
